@@ -32,14 +32,19 @@ function getArticle(userId) {
 }
 
 async function getUserArticle(user) {
-	const userId = await getUser(user);
-	if (user) {
-		const userArticle = await getArticle(userId.id);
-		console.log(userArticle);
+	try {
+		const userId = await getUser(user);
+		if (user) {
+			const userArticle = await getArticle(userId.id);
+			console.log(userArticle);
+		}
+	} catch (error) {
+		console.log(error);
+		console.log("abeg check the name again!");
 	}
 }
 
-getUserArticle("anna");
+getUserArticle("annas");
 
 // getUser("susan")
 // 	.then((userObj) => {
